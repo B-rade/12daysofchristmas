@@ -11,16 +11,16 @@ from tqdm import tqdm
 _ROOT = Path(__file__).parent.absolute()
 
 
-def get_data(path):
+def _get_data(path):
     return _ROOT / 'data' / path
 
 
-def load_object_list():
-    with open(get_data('object-list.txt')) as file:
+def _load_object_list():
+    with open(_get_data('object-list.txt')) as file:
         return file.read().splitlines()
 
 
-def download_search_result(search_term: str, download_directory: Path):
+def _download_search_result(search_term: str, download_directory: Path):
     if not download_directory.exists():
         download_directory.mkdir(parents=True)
 
@@ -46,9 +46,9 @@ def download_search_result(search_term: str, download_directory: Path):
 
 
 def scrape_images():
-    object_list = load_object_list()
+    object_list = _load_object_list()
     for search_term in tqdm(object_list):
-        download_search_result(search_term, _ROOT / 'data' / 'object-images')
+        _download_search_result(search_term, _ROOT / 'data' / 'object-images')
         time.sleep(1)
 
 
