@@ -4,6 +4,7 @@ pip install -r requirements.txt
 ```
 
 # Run
+You'll need an azure cognitive services key if you want to scrape for new images. Otherwise the script can run utilizing the existing object images in the repo. [Quickstart](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-web-search/quickstarts/python)
 ```
 make clean
 python main.py
